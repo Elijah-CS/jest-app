@@ -32,13 +32,36 @@ const data: dataInt[] = [
   },
 ]
 
+const customStyles = {
+  rows: {
+    style: {
+      border: '1px solid black !important',
+      borderRadius: '15px',
+      marginBottom: '15px'
+    },
+  },
+  headRow: {
+    style: {
+      border: 'none !important',
+      backgroundColor: 'rgb(207, 205, 205)'
+    },
+  },
+  table: {
+    style: {
+      backgroundColor: 'rgb(207, 205, 205)',
+      width: '90%',
+      border: '1px solid black !important',
+    },
+  }
+};
+
 function App() {
   return (
     <div className="App">
-      Hello
       <DataTable
         columns={columns}
         data={data}
+        customStyles={customStyles}
       />
     </div>
   );
