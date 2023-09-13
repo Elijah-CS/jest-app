@@ -19,27 +19,48 @@ const columns: TableColumn<dataInt>[] = [
   },
 ];
 
-const data: dataInt[] = [
-  {
-    id: 1,
-    title: 'Beetlejuice',
-    year: '1988',
-  },
-  {
-    id: 2,
-    title: 'Ghostbusters',
-    year: '1984',
-  },
-]
+// const data: dataInt[] = [
+//   {
+//     id: 1,
+//     title: 'Beetlejuice',
+//     year: '1988',
+//   },
+//   {
+//     id: 2,
+//     title: 'Ghostbusters',
+//     year: '1984',
+//   },
+// ]
+
+
+function makeData(amount: number) {
+
+  let data: dataInt[] = []
+  for (let i = 0; i < amount; i++) {
+    data.push({
+      id: i,
+      title: 'Beetlejuice',
+      year: (1980 + i).toString(),
+    })
+  }
+
+  return data
+}
 
 function App() {
   return (
     <div className="App">
-      Hello
-      <DataTable
-        columns={columns}
-        data={data}
-      />
+
+      <div className="wrapper">
+        <DataTable
+          columns={columns}
+          data={makeData(50)}
+          fixedHeader
+          fixedHeaderScrollHeight='auto'
+          pagination
+          paginationPerPage={25}
+        />
+      </div>
     </div>
   );
 }
